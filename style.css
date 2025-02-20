@@ -1,0 +1,686 @@
+body {
+    background-image: url('images/beckground.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-color: #f0f0f0;
+    
+    margin: 0px;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Затемнение фона */
+    z-index: -1; /* Размещение слоя под контентом */
+}
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background: linear-gradient(135deg, rgb(23 27 29), rgb(44, 62, 80));
+    color: #fff;
+    position: relative;
+    z-index: 100;
+    font-family: 'Montserrat', sans-serif; /* Основной шрифт для хедера */
+}
+
+.header .logo {
+    font-size: 24px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700; /* Толстый шрифт */
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Легкая тень */
+    font-weight: bold;
+}
+
+.header .menu {
+    display: flex;
+    gap: 15px;
+}
+
+.header .menu a {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400; /* Обычный вес шрифта */
+    font-size: 16px;
+    text-transform: capitalize; /* Текст с заглавной буквы */
+    letter-spacing: 1px;
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+.header .menu a:hover {
+    color: #e74c3c; /* Цвет при наведении */
+    transform: scale(1.1); /* Легкое увеличение */
+}
+.menu-toggle {
+    display: none;
+    font-size: 28px;
+    background: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+    .header {
+        padding: 10px 15px;
+    }
+
+    .header .menu {
+        display: none; /* Скрываем меню */
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: #2c3e50;
+        flex-direction: column;
+        padding: 10px 0;
+        z-index: 999;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .header .menu a {
+        padding: 10px 20px;
+        font-size: 18px;
+        text-align: center;
+        border-bottom: 1px solid #3498db;
+    }
+
+    .menu-toggle {
+        display: block; /* Показываем гамбургер */
+    }
+
+    .header .menu.active {
+        display: flex; /* Показываем меню при активации */
+    }
+}
+.main-content {
+    display: flex;
+    justify-content: space-between;
+    padding: 30px;
+    
+    margin-top: 20px;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.carousel-container {
+    flex: 1;
+    max-width: 40%; /* Уменьшаем ширину контейнера */
+    max-height: 720px; /* Уменьшаем высоту контейнера */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: rgb(67 13 60);
+    padding: 10px;
+    margin: 0 auto; /* Центрируем блок */
+    justify-content: center;
+    padding-top: 20px;
+}
+
+.carousel img {
+    width: 100%;
+    height: auto; /* Пропорциональное уменьшение */
+    max-height: 700px; /* Устанавливаем максимальную высоту для изображений */
+    object-fit: contain; /* Изображение будет сжато, сохраняя пропорции */
+    border-radius: 8px;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.carousel img:hover {
+    transform: scale(1.05); /* Легкое увеличение */
+    filter: brightness(90%); /* Затемнение при наведении */
+}
+
+.details {
+    flex: 1;
+    
+    background-color: rgb(67 13 60);
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    color: #333;
+    font-size: 16px;
+    line-height: 1.6;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.details:hover {
+    transform: scale(1.02); /* Легкое увеличение при наведении */
+    
+    
+}
+
+.details p {
+    margin-bottom: 20px;
+    font-size: 22px;
+    line-height: 1.8;
+}
+
+.details span {
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+.details p:last-child {
+    margin-bottom: 0;
+}
+
+.details p span {
+    color: #000000;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.details p:nth-child(even) {
+    background-color: rgb(192 149 149);
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.details p:nth-child(odd) {
+    padding: 10px;
+    border-radius: 5px;
+    background-color: rgb(192 149 149);
+}
+
+.details p:hover {
+    background-color: #f39c12;
+    color: #fff;
+    transition: all 0.3s ease;
+}
+
+@media screen and (max-width: 768px) {
+    .main-content {
+        flex-direction: column;
+       
+        gap: 20px;
+    }
+
+    .carousel-container {
+        margin-right: 0;
+        max-width: 100%;
+    }
+
+    .details {
+        max-width: 100%;
+        margin-top: 20px;
+    }
+}
+
+.navigation {
+    text-align: center;
+    padding: 20px;
+    margin-top: 32px;
+}
+
+.navigation a {
+    margin: 0 5px;
+    text-decoration: none;
+    color: #ffffff;
+    
+}
+
+.navigation a:hover {
+    text-decoration: underline;
+}
+@media screen and (max-width: 768px) {
+    .main-content {
+        padding: 20px; /* Уменьшаем внутренние отступы */
+    }
+
+    .carousel-container {
+        max-width: 100%; /* Ширина контейнера на всю ширину экрана */
+        max-height: auto; /* Автоматическая высота */
+        margin: 0; /* Убираем отступы по бокам */
+        box-shadow: none; /* Убираем тень */
+        background-color: transparent; /* Прозрачный фон */
+        padding: 0; /* Убираем внутренние отступы */
+    }
+
+    .carousel img {
+        max-height: 300px; /* Максимальная высота изображений */
+        border-radius: 0; /* Убираем скругление углов */
+    }
+
+    .details {
+        max-width: 100%; /* Ширина контейнера на всю ширину экрана */
+        padding: 15px; /* Уменьшаем внутренние отступы */
+        font-size: 14px; /* Уменьшаем размер шрифта */
+    }
+
+    .details p {
+        font-size: 16px; /* Размер текста */
+        line-height: 1.5; /* Межстрочный интервал */
+    }
+
+    .details p:last-child {
+        margin-bottom: 10px; /* Уменьшаем отступ для последнего параграфа */
+    }
+}
+
+
+/* ____________________________________________________________________________ ADD_PAGES */
+        /* Scoped Styles for Contact Page */
+        .contact-page {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 40px;
+           
+            
+            border-radius: 10px;
+            
+        }
+
+        .contact-header {
+            text-align: center;
+            font-size: 32px;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 48%;
+            padding: 12px;
+            border: 2px solid #000000;
+            border-radius: 8px;
+            font-size: 16px;
+            margin-bottom: 18px;
+            box-sizing: border-box;
+            background: rgb(255, 255, 255);
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .contact-form textarea {
+            width: 100%;
+            height: 120px;
+            resize: none;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            border-color: #2575fc;
+            outline: none;
+            box-shadow: 0 0 5px rgba(37, 117, 252, 0.3);
+        }
+
+        .contact-form .submit-btn {
+            background-color: #2575fc;
+            color: white;
+            border: none;
+            padding: 14px 28px;
+            font-size: 18px;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            width: 100%;
+        }
+
+        .contact-form .submit-btn:hover {
+            background-color: #1a5fbf;
+        }
+
+        .contact-sidebar {
+            width: 100%;
+            background-color: rgb(255, 255, 255);
+            padding: 20px;
+            border: 2px solid #000000;
+            border-radius: 15px;
+            font-size: 16px;
+            line-height: 0.5;
+            color: #555;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            display: grid;
+            justify-content: center;
+
+        }
+
+        .contact-sidebar a {
+            color: #2575fc;
+            text-decoration: none;
+        }
+
+        .contact-sidebar a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .contact-form input,
+            .contact-form textarea,
+            .contact-sidebar {
+                width: 100%;
+            }
+        }
+
+        
+/* ____________________________________________________________________________  */
+
+/* ____________________________________________________________________________  DELETE PAGE*/
+
+.delete-info-page {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #f9f9f9;
+}
+
+.delete-info-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px;
+    background-color: white;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    margin-top: 25px;
+}
+
+.delete-info-header {
+    text-align: center;
+    font-size: 28px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.delete-info-content {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.delete-info-important {
+    font-weight: bold;
+    color: #e74c3c;
+}
+
+.delete-info-contact {
+    font-size: 18px;
+    font-weight: 700;
+    color: #2575fc;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.delete-info-contact a {
+    color: #2575fc;
+    text-decoration: none;
+}
+
+.delete-info-contact a:hover {
+    text-decoration: underline;
+}
+
+.delete-info-note {
+    background-color: #fff3f3;
+    padding: 15px;
+    border-left: 5px solid #e74c3c;
+    color: #e74c3c;
+    font-size: 16px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+/* ____________________________________________________________________________  */
+
+
+/* ____________________________________________________________________________  LAW PAGES*/
+.copyright-page {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #f9f9f9;
+    
+}
+
+.copyright-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px;
+    background-color: white;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    margin-top: 25px;
+    border-radius: 10px;
+}
+
+.copyright-header {
+    text-align: center;
+    font-size: 28px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.copyright-content {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.copyright-important {
+    font-weight: bold;
+    color: #e74c3c;
+}
+
+.copyright-contact {
+    font-size: 18px;
+    font-weight: 700;
+    color: #2575fc;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.copyright-contact a {
+    color: #2575fc;
+    text-decoration: none;
+}
+
+.copyright-contact a:hover {
+    text-decoration: underline;
+}
+
+.copyright-note {
+    background-color: #fff3f3;
+    padding: 15px;
+    border-left: 5px solid #e74c3c;
+    color: #e74c3c;
+    font-size: 16px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+/* ____________________________________________________________________________  */
+
+/* ____________________________________________________________________________ ABOUT PAGES */
+.about-page {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #f9f9f9;
+    padding:  0;
+}
+
+.about-container {
+    max-width: 900px;
+    margin: 0 auto;
+    background-color: white;
+    padding: 40px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    margin-top: 25px;
+}
+
+.about-header {
+    text-align: center;
+    font-size: 32px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.about-content {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.about-important {
+    font-weight: bold;
+    color: #e74c3c;
+}
+
+.about-contact {
+    font-size: 18px;
+    font-weight: 700;
+    color: #2575fc;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.about-contact a {
+    color: #2575fc;
+    text-decoration: none;
+}
+
+.about-contact a:hover {
+    text-decoration: underline;
+}
+
+.about-footer {
+    font-size: 14px;
+    color: #aaa;
+    text-align: center;
+    margin-top: 40px;
+}
+
+.about-footer a {
+    color: #2575fc;
+    text-decoration: none;
+}
+
+.about-footer a:hover {
+    text-decoration: underline;
+}
+/* ____________________________________________________________________________  */
+
+
+/* ____________________________________________________________________________ SEARCH PAGES */
+    /* Scoped Styles for Search Page */
+    .search-page {
+        font-family: 'Montserrat', sans-serif;
+        background-color: #f9f9f9;
+        
+    }
+
+    .search-container {
+        max-width: 900px;
+        margin: 0 auto;
+        background-color: white;
+        padding: 40px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+        margin-top: 25px;
+    }
+
+    .search-header {
+        text-align: center;
+        font-size: 32px;
+        font-weight: 700;
+        color: #333;
+        margin-bottom: 20px;
+        
+    }
+
+    .search-form {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        margin-bottom: 30px;
+    }
+
+    .search-form input {
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+        box-sizing: border-box;
+    }
+
+    .search-form input:focus {
+        border-color: #2575fc;
+        outline: none;
+        box-shadow: 0 0 5px rgba(37, 117, 252, 0.5);
+    }
+
+    .search-form button {
+        padding: 10px 20px;
+        background-color: #2575fc;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .search-form button:hover {
+        background-color: #1d62d0;
+    }
+
+    .search-results {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 20px;
+    }
+
+    .search-item {
+        background-color: white;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+        transition: transform 0.3s ease;
+    }
+
+    .search-item:hover {
+        transform: scale(1.05);
+    }
+
+    .search-item img {
+        width: 100%;
+        height: auto;
+        border-radius: 5px;
+        margin-bottom: 15px;
+    }
+
+    .search-item h3 {
+        font-size: 18px;
+        color: #333;
+        margin-bottom: 10px;
+    }
+
+    .search-item p {
+        font-size: 14px;
+        color: #777;
+    }
+
+    .search-footer {
+        text-align: center;
+        font-size: 14px;
+        color: #aaa;
+        margin-top: 40px;
+    }
