@@ -1,19 +1,8 @@
-{
-  "version": 2,
-  "functions": {
-    "api/*.php": {
-      "runtime": "vercel-php@0.7.0"
-    }
-  },
-  "routes": [
-    { "src": "/add_admin.html", "dest": "/add_admin.html" },
-    { "src": "/Search.html", "dest": "/Search.html" },
-    { "src": "/delete_admin.php", "dest": "/api/delete_admin.php" },
-    { "src": "/upload.php", "dest": "/api/upload.php" },
-    { "src": "/search", "dest": "/api/search.php" },
-    { "src": "/(.*)", "dest": "/api/index.php" }
-  ],
-  "env": {
-    "DATABASE_URL": "postgresql://neondb_owner:npg_uNx61pWBvDLC@ep-orange-waterfall-a89m7agu-pooler.eastus2.azure.neon.tech/neondb"
+"functions": {
+  "api/*.php": {
+    "runtime": "vercel-php@0.7.0"
   }
+},
+"env": {
+  "DATABASE_URL": "postgresql://neondb_owner:npg_uNx61pWBvDLC@ep-orange-waterfall-a89m7agu-pooler.eastus2.azure.neon.tech/neondb"
 }
